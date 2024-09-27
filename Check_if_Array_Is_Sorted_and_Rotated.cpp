@@ -3,7 +3,7 @@ public:
     bool check(vector<int>& nums) {
         int small=0;
         for(int i=1 ; i<nums.size() ;i++){
-            if(nums[small]>=nums[i]){
+            if(nums[small]>nums[i]){
                 small=i;
             }
         }
