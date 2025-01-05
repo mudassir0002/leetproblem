@@ -17,15 +17,13 @@ class Solution {
 
         // // Compare the sorted character arrays
         // return Arrays.equals(sArray, tArray);
-        int m1[] = new int[26];
+        char m1[] = new char[27];
         
-        for(int i=0 ;i<s.length() ; ++i){
-            m1[s.charAt(i) -'a']++;
-        }
-        for(int i=0 ;i<t.length() ; ++i){
+        for(int i=0 ;i<s.length() ; i++){
+            m1[s.charAt(i)-'a']++;
             m1[t.charAt(i)-'a']--;
         }
-        for(int i=0 ; i<m1.length ; i++){
+        for(int i=0 ; i<s.length() ; i++){
             if(m1[i]!=0){
                 return false;
             }
