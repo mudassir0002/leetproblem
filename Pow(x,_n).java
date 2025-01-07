@@ -8,10 +8,7 @@ class Solution {
             N = -N;
             x = 1/x;
         }
-        if(N%2==0){
-            return myPow(x*x , (int)(N/2));
-        }else{
-            return x* myPow(x , (int)(N-1));
-        }
+        double ans = x * myPow(x,(int)N-1);
+        return ans;
     }
 }
