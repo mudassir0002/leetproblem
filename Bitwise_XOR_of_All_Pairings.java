@@ -1,22 +1,19 @@
 class Solution {
     public int xorAllNums(int[] nums1, int[] nums2) {
-        int c1 = nums1.length;
-        int c2 = nums2.length;
-        int x1 = 0, x2 = 0;
-
-        if (c1 % 2 != 0) {
-            for (int num : nums2) {
-                x2 ^= num;
+        int n1 = nums1.length;
+        int n2 = nums2.length;
+        int a[] = new int[n1*n2];
+        int cnt =0;
+        for(int i=0 ;i<n1 ; i++){
+            for(int j=0 ; j<n2 ; j++){
+                a[cnt] = nums1[i]^nums2[j];
+                cnt++;
             }
         }
-    
-        if (c2 % 2 !=0) {
-            for (int num :nums1) {
-                x1 ^= num;
-            
-            }
+        int ans = a[0];
+        for(int i=1 ; i<cnt ; i++){
+            ans = ans^a[i];
         }
-        
-        return x1 ^ x2;
+        return ans;
     }
 }
