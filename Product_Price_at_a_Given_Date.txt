@@ -1,8 +1,4 @@
-with cte as (select product_id , last_value from 
-(select *,
-last_value(new_price) over (partition by product_id order by change_date range between unbounded preceding and unbounded following) as last_value
-from products
-where change_date <= '2019-08-16'))
 
-select distinct p.product_id,coalesce(c.last_value,10) as price 
-from products p left join cte c on p.product_id=c.product_id;
+select product_id,10 as price from Products where product_id not in (select product_id from Products where change_date <= '2019-08-16')
+union 
+select product_id,new_price as price from Products where (product_id,change_date) in (select product_id,max(change_date) from Products where change_date <= '2019-08-16' group by product_id)
