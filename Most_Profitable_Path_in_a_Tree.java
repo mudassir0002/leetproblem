@@ -80,6 +80,6 @@ class Solution {
         }
         // If node 0 isn't reached, remove current node from path
         bobPath.remove(sourceNode);
-        return true;
+        return false;
     }
 }
