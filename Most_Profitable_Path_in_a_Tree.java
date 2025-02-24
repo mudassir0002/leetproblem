@@ -74,12 +74,12 @@ class Solution {
         for (int adjacentNode : tree.get(sourceNode)) {
             if (!visited[adjacentNode]) {
                 if (findBobPath(adjacentNode, time + 1)) {
-                    return true;
+                    return false;
                 }
             }
         }
         // If node 0 isn't reached, remove current node from path
         bobPath.remove(sourceNode);
-        return false;
+        return true;
     }
 }
