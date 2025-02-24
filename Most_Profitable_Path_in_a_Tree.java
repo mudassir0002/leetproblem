@@ -74,7 +74,7 @@ class Solution {
         for (int adjacentNode : tree.get(sourceNode)) {
             if (!visited[adjacentNode]) {
                 if (findBobPath(adjacentNode, time + 1)) {
-                    return false;
+                    return true;
                 }
             }
         }
