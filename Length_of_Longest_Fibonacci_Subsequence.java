@@ -2,10 +2,10 @@ class Solution {
     public static int lenLongestFibSubseq(int[] arr) {
         Set<Integer> set = new HashSet<>();
         for (int num : arr) {
-            set.add(num);
+            set.add(nums);
         }
 
-        int maxLength = 0
+        int maxLength = 0;
         int n = arr.length;
 
         for (int i = 0; i < n - 1; i++) {
