@@ -1,56 +1,41 @@
 class Solution {
-    public String shortestCommonSupersequence(String str1, String str2) {
-        String res = "";
-        try{
-            Callable<String> task = () -> generateLCS(str1, str2);
-            FutureTask<String> future = new FutureTask<>(task);
-            new Thread(future).start();
-            res = future.get();
-        }
-        catch(Exception e){
 
+    public String shortestCommonSupersequence(String str1, String str2) {
+        // Base case: both strings are empty
+        if (str1.isEmpty() && str2.isEmpty()) {
+            return "";
         }
-        return 
-    }
-    public String generateLCS(String str1, String str2){
-        int m = str1.length();
-        int n = str2.length();
-        int[][] lcsMatrix = new int[m + 1][n + 1];
-        for(int i = 1; i <= m; i++){
-            for(int j = 1; j <= n; j++){
-                if(str1.charAt(i - 1) == str2.charAt(j - 1)){
-                    lcsMatrix[i][j] = lcsMatrix[i - 1][j - 1] + 1;
-                }
-                else{
-                    lcsMatrix[i][j] = Math.max(lcsMatrix[i - 1][j], lcsMatrix[i][j - 1]);
-                }
-            }
+
+        // Base case: one string is empty, append the other string
+        if (str1.isEmpty()) {
+            return str2;
         }
-        int row = m, col = n;
-        StringBuilder ans = new StringBuilder();
-        while(row > 0 && col > 0){
-            if(str1.charAt(row - 1) == str2.charAt(col - 1)){
-                ans.append(str1.charAt(row - 1));
-                row--;
-                col--;
-            }
-            else if(lcsMatrix[row - 1][col] > lcsMatrix[row][col - 1]){
-                ans.append(str1.charAt(row - 1));
-                row--;
-            }
-            else{
-                ans.append(str2.charAt(col - 1));
-                col--;
-            }
+
+        if (str2.isEmpty()) {
+            return str1;
         }
-        while(row > 0){
-            ans.append(str1.charAt(row - 1));
-            row--;
+
+        // If the first characters match, include it in the supersequence
+        if (str1.charAt(0) == str2.charAt(0)) {
+            return (
+                str1.charAt(0) +
+                shortestCommonSupersequence(
+                    str1.substring(1),
+                    str2.substring(1)
+                )
+            );
+        } else {
+            // Try both options: picking from str1 or str2, and choose the shorter one
+            String pickStr1 =
+                str1.charAt(0) +
+                shortestCommonSupersequence(str1.substring(1), str2);
+            String pickStr2 =
+                str2.charAt(0) +
+                shortestCommonSupersequence(str1, str2.substring(1));
+
+            return (pickStr1.length() < pickStr2.length())
+                ? pickStr1
+                : pickStr2;
         }
-        while(col > 0){
-            ans.append(str2.charAt(col - 1));
-            col--;
-        }
-        return ans.reverse().toString();
     }
 }
