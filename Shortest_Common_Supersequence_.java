@@ -34,8 +34,7 @@ class Solution {
                 shortestCommonSupersequence(str1, str2.substring(1));
 
             return (pickStr1.length() < pickStr2.length())
-                ? pickStr1
-                : pickStr2;
+                ?
         }
     }
 }
