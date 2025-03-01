@@ -9,18 +9,12 @@ class Solution {
                 }
             }
         }
-        int count=0;
-        int k=0;
-        for(int i=0 ; i<n ; i++){
-            if(nums[i]!=0){
-                nums[k++] = nums[i];
-            }else{
-                count++;
-            }
-        }
 
-        for(int i=k ; i<k+count ; i++){
-            nums[i]=0;
+        for(int i=0 ; i<n-1 ; i++){
+            if(nums[i]==0){
+                nums[i] = nums[i+1];
+                nums[i+1] = 0;
+            }
         }
         
         return nums;
