@@ -55,6 +55,6 @@ class Solution {
                 }
             }
         }
-        return sieve;
+        return ;
     }
 }
