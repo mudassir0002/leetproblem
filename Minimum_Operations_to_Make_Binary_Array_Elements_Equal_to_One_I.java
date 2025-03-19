@@ -12,6 +12,6 @@ class Solution {
             }
         }
 
-        return (nums[n - 2] == 1 && nums[n - 1] == 1) ? count : 1;
+        return (nums[n - 2] == 1 && nums[n - 1] == 1) ? count : -1;
     }
 }
