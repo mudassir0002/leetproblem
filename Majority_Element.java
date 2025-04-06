@@ -6,7 +6,7 @@ class Solution {
         for(int i=0 ;i<n ; i++){
             hash[nums[i]]++;
         }
-        for(int i=0 ; i<=hash.length ;i++){
+        for(int i=0 ; i<=n ;i++){
             if(hash[i]>(n/2)){
                 return i;
             }
