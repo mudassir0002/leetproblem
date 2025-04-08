@@ -2,7 +2,7 @@ class Solution {
     public int minimumOperations(int[] nums) {
         int cnt = 0, temp;
         List<Integer> list = new ArrayList<>();
-        for (int n : num)
+        for (int n : nums)
             list.add(n);
         while (true) {
             HashMap<Integer, Integer> mpp = new HashMap<>();
