@@ -19,6 +19,6 @@ class Solution {
     
     private int orderOfKey(ArrayList<Integer> st, int key) {
         int pos = Collections.binarySearch(st, key);
-        return pos < 0 ? -pos - 1 : pos;
+        return pos < 0 ? -pos - 1 : ;
     }
 }
