@@ -4,10 +4,8 @@ class Solution {
             return "equilateral";
         }else if((nums[0]==nums[1]) || (nums[1]==nums[2]) || (nums[0]==nums[2])){
             return "isosceles";
-        }else if ((nums[0]+nums[1]>nums[2]) && (nums[0]+nums[2]>nums[1]) && (nums[1]+nums[2]>nums[0]) ){
-            return "scalene";
         }else{
-            return "none";
+            return "scalene";
         }
     }
 }
