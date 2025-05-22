@@ -22,10 +22,10 @@ class Solution {
         // }
         // return count;
         int i=0;
-        for(int j=1;j<arr.length;j++){
-            if(arr[i]!=arr[j]){
+        for(int j=1;j<nums.length;j++){
+            if(nums[i]!=nums[j]){
                 i++;
-                arr[i]=arr[j];
+                nums[i]=nums[j];
             }
         }
         return i+1;
