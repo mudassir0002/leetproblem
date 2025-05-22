@@ -13,22 +13,36 @@ class Solution {
         //     return nums[nums.length-1];
         // }
         // }
-
+        int n = nums.length;
         if(nums.length==1 || nums.length==0){
             return nums[0];
         }
-
-        int n = nums.length;
-        int arr[] = new int[n];
-        for(int i=0 ;i<n ; i++){
-            arr[nums[i]]++;
-        }
-        for(int i=0 ;i<n ; i++){
-            if(arr[i]==1){
-                return i;
+        int count=0;
+        for(int i=0 ; i<n ; i++){
+            int x = nums[i];
+            for(int j=0 ; j<n ;j++){
+                if(nums[j]==x){
+                    count++;
+                }
             }
+            if(count==1){
+                return nums[i];
+            }
+            count=0;
         }
         return -1;
+
+        
+        // int arr[] = new int[n];
+        // for(int i=0 ;i<n ; i++){
+        //     arr[nums[i]]++;
+        // }
+        // for(int i=0 ;i<n ; i++){
+        //     if(arr[i]==1){
+        //         return i;
+        //     }
+        // }
+        // return -1;
 
 
         // if(nums.length==1 || nums.length==0){
