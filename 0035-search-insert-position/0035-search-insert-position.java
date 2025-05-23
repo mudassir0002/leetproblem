@@ -6,7 +6,7 @@ class Solution {
         if(arr[e]<target){
             return e+1;
         }else if(arr[s]>target){
-            return s-1;
+            return s;
         }
         while(s<=e){
             
