@@ -13,7 +13,7 @@ class Solution {
         // return max;
 
         int cnt=0;
-        int max=0;
+        int max=Integer.MIN_VALUE;
         for(int i=0 ; i<s.length() ; i++){
             if(s.charAt(i) == '('){
                 cnt++;
