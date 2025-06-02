@@ -24,6 +24,6 @@ class Solution {
             total += c;
         }
 
-        return to;
+        return total;
     }
 }
