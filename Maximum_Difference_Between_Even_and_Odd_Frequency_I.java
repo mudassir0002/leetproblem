@@ -13,6 +13,6 @@ class Solution {
                 maxodd = Math.max(maxodd , arr[i]);
             }
         }
-        return maxodd-maxeven;
+        return Math.abs(maxodd-maxeven);
     }
 }
