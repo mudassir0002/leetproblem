@@ -13,11 +13,6 @@ class Solution {
                 maxodd = Math.max(maxodd , arr[i]);
             }
         }
-        if(maxodd-maxeven < 0){
-            return -1;
-        }else{
-            return maxodd-maxeven;
-        }
-        
+        return maxodd-maxeven;
     }
 }
