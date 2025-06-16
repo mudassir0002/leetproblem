@@ -12,8 +12,6 @@ class Solution {
                     (s.charAt(i)=='}' && st.peek().equals('{')))
                     {
                     st.pop();
-                    }else{
-                        return false;
                     }
             }
         }
