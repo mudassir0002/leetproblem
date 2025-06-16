@@ -7,6 +7,8 @@ class Solution {
                 if(nums[i]<nums[j]){
                 curr = Math.abs(nums[i]-nums[j]);
                 max = Math.max(max , curr);
+                }else{
+                    i++;
                 }
             }
         }
