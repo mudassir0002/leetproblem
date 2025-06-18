@@ -17,9 +17,6 @@ class Solution {
                     amount[0] -=5;
                     amount[1] -=10;
                     amount[2] +=20;
-                }else if(amount[0]>=15){
-                    amount[0] -=15;
-                    amount[2] +=20;
                 }else{
                     return false;
                 }
