@@ -1,6 +1,6 @@
 class Solution {
     public boolean lemonadeChange(int[] bills) {
-        // Arrays.sort(bills);
+        Arrays.sort(bills);
         int amount[] = new int[3];
         for(int i=0 ;i<bills.length ; i++){
             if(bills[i]==5){
