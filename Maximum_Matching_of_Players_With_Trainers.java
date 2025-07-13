@@ -9,7 +9,6 @@ class Solution {
             while(j<trainers.length){
                 if(players[i]<=trainers[j]){
                     cnt++;
-                    trainers[j]=-1;
                     break;
                 }else{
                     j++;
