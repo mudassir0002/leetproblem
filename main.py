@@ -16,8 +16,8 @@ HEADERS = {
 
 def fetch_leetcode_submissions():
     submissions = []
-    offset = 100
-    limit = 100
+    offset = 10
+    limit = 50
 
     while True:
         url = f"https://leetcode.com/api/submissions/?offset={offset}&limit={limit}"
@@ -26,6 +26,7 @@ def fetch_leetcode_submissions():
         if response.status_code != 200:
             print("Failed to fetch submissions. Check your cookies.")
             break
+
 
         data = response.json()
         fetched_submissions = data.get("submissions_dump", [])
@@ -50,7 +51,7 @@ def commit_submission(title, code, lang, timestamp):
     filename = f"{title.replace(' ', '_')}.{file_extension}"
     filepath = os.path.join(REPO_PATH, filename)
 
-    with open(filepath, "w") as f:
+    with open(filepath, "w", encoding="utf-8") as f:
         f.write(code)
 
     commit_time = datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%dT%H:%M:%S')
