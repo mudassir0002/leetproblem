@@ -22,21 +22,40 @@ class Solution {
         //         return nums[i];
         //     }
         // }
-        HashMap<Integer,Integer> map = new HashMap<>();
-        for(int i=0 ; i<nums.length ; i++){
-            if(map.containsKey(nums[i])){
-                map.put(nums[i] , map.get(nums[i]) + 1);
+        // HashMap<Integer,Integer> map = new HashMap<>();
+        // for(int i=0 ; i<nums.length ; i++){
+        //     if(map.containsKey(nums[i])){
+        //         map.put(nums[i] , map.get(nums[i]) + 1);
+        //     }else{
+        //         map.put(nums[i] , 1);
+        //     }
+        // }
+
+        // for(Map.Entry<Integer,Integer> m : map.entrySet()){
+        //     if(m.getValue()>(n/2)){
+        //         return m.getKey();
+        //     }
+        // }
+
+        // return -1;
+        Arrays.sort(nums);
+        int curr=1;
+        int max =-1;
+        int idx=-1;
+        if(nums.length==1){
+            return nums[0];
+        }
+        for(int i=1; i<nums.length ; i++){
+            if(nums[i]==nums[i-1]){
+                curr++;
             }else{
-                map.put(nums[i] , 1);
+                curr=1;
             }
-        }
-
-        for(Map.Entry<Integer,Integer> m : map.entrySet()){
-            if(m.getValue()>(n/2)){
-                return m.getKey();
+            if(curr>max){
+                idx=nums[i];
             }
+            max = Math.max(curr , max);
         }
-
-        return -1;
+        return idx;
     }
 }
