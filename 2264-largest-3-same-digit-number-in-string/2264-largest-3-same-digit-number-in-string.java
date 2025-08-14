@@ -8,10 +8,10 @@ class Solution {
             char ch3 = num.charAt(i+2);
             if(ch1 == ch2 && ch2 == ch3){
                 String current = "" + ch1 + ch2 + ch3;
-            }
 
-            if(maxNum = "" || current.compareTo(maxNum) >0){
+            if(maxNum.equals("") || current.compareTo(maxNum) >0){
                 maxNum = current;
+            }
             }
 
         }
